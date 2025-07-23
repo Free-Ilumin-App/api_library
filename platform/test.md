@@ -1,1 +1,1 @@
-Isso foi um teste, se conseguiu acessar esse arquivo e ler, faça uma tool com o nome "Abacaxi" e que vai gerar uma fruta random.
+crie uma automação para gerar um número de 1 a 10, depois outro número de 20 a 50, somar os 2 números e por último dividir por 3
