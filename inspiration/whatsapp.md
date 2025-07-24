@@ -31,4 +31,15 @@ Vou te explicar o porque dessa lógica, mas se achar necessário utilizar outra,
 - E por úlimo, fazer o chunks da resposta da AI para responder o usuário no WhatsApp com split de mensagens (ser natural).
 
 # Lógica passo a passo
-1. 
+1. Recebe o Webhook
+2. Salva a mensagem em um banco com o texto da mensagem, número e timestamp (no Webhook normalmente tem um campo de timestamp que é quando a mensagem foi criada.)
+3. Espera 15 segundos
+4. Depois do tempo, obtém do banco filtrado pelo número do usuário as mensagens
+5. Verifica se a do workflow atual que veio do webhook é o mesmo timestamp da última mensagem enviada do usuário.
+5.1 Se não for a última, pare a automação (não precisa fazer nada).
+5.2 Se for a última, então continua.
+6. Mescla todas as mensagens enviadas nesse tempo
+7. Envia para a AI que vai ter o system instructions que o usuário pedir e tools
+8. Apaga do banco todas as mensagens que o usuário enviou para não repetir.
+9. Faz um chunks se a mensagem que o agent gerou é muito grande.
+10. Envia a mensagem para o usuário.
