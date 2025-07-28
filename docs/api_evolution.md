@@ -9,3 +9,6 @@ curl --location 'https://{{domain}}/message/sendText/{{instance}}' \
     "text": "{{texto a enviar}}"
 }'
 ```
+
+No header dessa cURL é obrigatório ter: "apikey": "{apikey}"
+Isso porque é o formato de autenticação da Evolution API é via apikey no header.
